@@ -1,0 +1,38 @@
+name: Build Micromamba env
+run-name: ${{ github.actor }} is building mm env
+
+on:
+  - workflow_dispatch
+
+jobs:
+  build-conda-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Test path
+        run: |
+          pwd
+          ls -al .
+          echo ${{ github.workspace }}
+          ls -al ${{ github.workspace }}
+
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          micromamba-version: "1.4.4-0"
+          environment-file: ${{ github.workspace }}/conda-env/env.yml
+          condarc-file: /path/to/.condarc
+          create-args: -v
+          init-shell: bash
+          cache-environment: true
+          post-cleanup: "all"
+
+      - name: Test in micromamba env
+        run: |
+          which python
+          which pip
+          python -c "import polars"
+          python -c "import python-dotenv"
+          pytest --version
+        shell: bash
