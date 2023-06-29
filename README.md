@@ -7,6 +7,6 @@ Using micromamba:
 micromamba env export > env.yml
 
 # to create env from this file
-create -f env.yml
+micromamba create -f env.yml
 
 ```
