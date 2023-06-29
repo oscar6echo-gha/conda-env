@@ -29,7 +29,9 @@ jobs:
           echo ${{ github.repository_owner }}
           echo ${{ github.repository }}
           echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
           ls -al ${{ github.workspace }}
+          ls -al ${{ github.workspace }}/..
 
       - uses: mamba-org/setup-micromamba@v1
         with:
