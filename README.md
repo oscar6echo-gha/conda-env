@@ -10,3 +10,7 @@ micromamba env export > env.yml
 micromamba create -f env.yml
 
 ```
+
+## Github Enterprise
+
+Ref <https://docs.github.com/en/github-ae@latest/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise>
