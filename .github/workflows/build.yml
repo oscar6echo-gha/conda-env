@@ -32,7 +32,8 @@ jobs:
 
       - uses: mamba-org/setup-micromamba@v1
         with:
-          micromamba-version: "1.4.4-0"
+        #   micromamba-version: "1.4.4-0"
+          micromamba-url: https://github.com/oscar6echo-gha/software/raw/main/micromamba-linux-64
           environment-file: ${{ github.workspace }}/main/env.yml
           condarc-file: ${{ github.workspace }}/main/.condarc
           create-args: -v
