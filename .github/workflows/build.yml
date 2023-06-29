@@ -11,18 +11,23 @@ jobs:
       - name: Checkout conda-env
         uses: actions/checkout@v3
         with:
-          path: main
+          repository: oscar6echo-gha/conda-env
+        #   path: main
 
       - name: Checkout pkg-1
         uses: actions/checkout@v3
         with:
           repository: oscar6echo-gha/pkg-1
-          path: pkg-1
+        #   path: pkg-1
 
       - name: Test path
         run: |
           pwd
           ls -al .
+          echo ${{ github.action }}
+          echo ${{ github.action_path }}
+          echo ${{ github.repository_owner }}
+          echo ${{ github.repository }}
           echo ${{ github.workspace }}
           ls -al ${{ github.workspace }}
 
