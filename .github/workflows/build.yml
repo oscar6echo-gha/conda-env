@@ -45,6 +45,6 @@ jobs:
           which python
           which pip
           python -c "import polars"
-          python -c "import python-dotenv"
+          python -c "import dotenv"
           pytest --version
         shell: bash -l {0}
