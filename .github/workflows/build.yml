@@ -8,8 +8,16 @@ jobs:
   build-conda-env:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout conda-env
         uses: actions/checkout@v3
+        with:
+          path: main
+
+      - name: Checkout pkg-1
+        uses: actions/checkout@v3
+        with:
+          repository: oscar6echo-gha/pkg-1
+          path: pkg-1
 
       - name: Test path
         run: |
@@ -21,8 +29,8 @@ jobs:
       - uses: mamba-org/setup-micromamba@v1
         with:
           micromamba-version: "1.4.4-0"
-          environment-file: ${{ github.workspace }}/conda-env/env.yml
-          condarc-file: ${{ github.workspace }}/conda-env/.condarc
+          environment-file: ${{ github.workspace }}/env.yml
+          condarc-file: ${{ github.workspace }}/.condarc
           create-args: -v
           init-shell: bash
           cache-environment: true
