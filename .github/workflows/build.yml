@@ -8,17 +8,25 @@ jobs:
   build-conda-env:
     runs-on: ubuntu-latest
     steps:
+      - name: Test path
+        run: |
+          pwd
+          ls -al .
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
+          ls -al ${{ github.workspace }}
+
       - name: Checkout conda-env
         uses: actions/checkout@v3
         with:
           repository: oscar6echo-gha/conda-env
-        #   path: main
+          path: main
 
       - name: Checkout pkg-1
         uses: actions/checkout@v3
         with:
           repository: oscar6echo-gha/pkg-1
-        #   path: pkg-1
+          path: pkg-1
 
       - name: Test path
         run: |
