@@ -58,6 +58,6 @@ jobs:
 
       - name: Test pkg-1
         run: |
-          python -c "import pkg_1.example as m; print(m.times_two(3))"
+          python -c "import pkg_1.example as m; print(m.times_two(3)); print(m.square(3));"
         shell: bash -l {0}
 
