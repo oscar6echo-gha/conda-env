@@ -40,7 +40,7 @@ jobs:
           cache-environment: true
           post-cleanup: "all"
 
-      - name: Test in micromamba env
+      - name: Test micromamba env
         run: |
           which python
           which pip
@@ -48,3 +48,15 @@ jobs:
           python -c "import dotenv"
           pytest --version
         shell: bash -l {0}
+
+      - name: Install pkg-1 in env
+        run: |
+          cd ${{ github.workspace }}/pkg-1
+          pip install .
+        shell: bash -l {0}
+
+      - name: Test pkg-1
+        run: |
+          python -c "import pkg_1.example; print(times_two(3))"
+        shell: bash -l {0}
+
