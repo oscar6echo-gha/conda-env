@@ -22,7 +22,7 @@ jobs:
         with:
           micromamba-version: "1.4.4-0"
           environment-file: ${{ github.workspace }}/conda-env/env.yml
-          condarc-file: /path/to/.condarc
+          condarc-file: ${{ github.workspace }}/conda-env/.condarc
           create-args: -v
           init-shell: bash
           cache-environment: true
