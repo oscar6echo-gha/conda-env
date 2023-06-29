@@ -47,4 +47,4 @@ jobs:
           python -c "import polars"
           python -c "import python-dotenv"
           pytest --version
-        shell: bash
+        shell: bash -l {0}
