@@ -8,6 +8,14 @@ jobs:
   build-conda-env:
     runs-on: ubuntu-latest
     steps:
+      - name: Test runner characteristics
+        run: |
+          cat /etc/os-release
+          echo --- df -hT
+          df -hT
+          echo --- lscpu
+          lscpu
+
       - name: Test init path
         run: |
           pwd
