@@ -65,7 +65,6 @@ jobs:
         env:
           REPO_SECRET_1: ${{ secrets.MY_REPO_SECRET_1 }}
         run: |
-          echo $HOME
           mkdir $HOME/secrets
           echo "store secret in file: $HOME/secrets/repo_secret_1.txt"
           echo $REPO_SECRET_1 | base64 -d > $HOME/secrets/repo_secret_1.txt
