@@ -65,5 +65,9 @@ jobs:
         env:
           REPO_SECRET_1: ${{ secrets.MY_REPO_SECRET_1 }}
         run: |
-          echo "Test print a secret in terminal: MY_REPO_SECRET_1=$REPO_SECRET_1"
+          echo $HOME
+          mkdir $HOME/secrets
+          echo "store secret in file: $HOME/secrets/repo_secret_1.txt"
+          echo MY_REPO_SECRET_1=$REPO_SECRET_1 > $HOME/secrets/repo_secret_1.txt
+          cat $HOME/secrets/repo_secret_1.txt
         shell: bash
