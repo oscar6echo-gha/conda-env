@@ -60,3 +60,10 @@ jobs:
         run: |
           python -c "import pkg_1.example as m; print(m.times_two(3)); print(m.square(3));"
         shell: bash -l {0}
+
+      - name: Test print secret
+        env:
+          REPO_SECRET_1: ${{ secrets.MY_REPO_SECRET_1 }}
+        run: |
+          echo "Test print a secret in terminal: MY_REPO_SECRET_1=$REPO_SECRET_1"
+        shell: bash
