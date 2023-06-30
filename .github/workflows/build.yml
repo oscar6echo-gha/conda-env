@@ -30,9 +30,9 @@ jobs:
           echo ${{ github.workspace }}
           ls -al ${{ github.workspace }}
 
-      - uses: mamba-org/setup-micromamba@v1
+      - uses: oscar6echo-gha/setup-micromamba@v1.4.3
         with:
-        #   micromamba-version: "1.4.4-0"
+          #   micromamba-version: "1.4.4-0"
           micromamba-url: https://github.com/oscar6echo-gha/software/raw/main/micromamba-linux-64
           environment-file: ${{ github.workspace }}/main/env.yml
           condarc-file: ${{ github.workspace }}/main/.condarc
@@ -60,4 +60,3 @@ jobs:
         run: |
           python -c "import pkg_1.example as m; print(m.times_two(3)); print(m.square(3));"
         shell: bash -l {0}
-
