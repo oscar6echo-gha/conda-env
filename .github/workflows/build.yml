@@ -68,8 +68,6 @@ jobs:
           echo $HOME
           mkdir $HOME/secrets
           echo "store secret in file: $HOME/secrets/repo_secret_1.txt"
-          echo MY_REPO_SECRET_1=$REPO_SECRET_1
-          echo $REPO_SECRET_1 | base64 > $HOME/secrets/repo_secret_1.txt
+          echo $REPO_SECRET_1 | base64 -d > $HOME/secrets/repo_secret_1.txt
           cat $HOME/secrets/repo_secret_1.txt
-          cat $HOME/secrets/repo_secret_1.txt | base64 -d
         shell: bash
