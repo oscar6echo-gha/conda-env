@@ -8,7 +8,7 @@ jobs:
   build-conda-env:
     runs-on: ubuntu-latest
     steps:
-      - name: Test runner characteristics
+      - name: Show runner characteristics
         run: |
           cat /etc/os-release
           echo --- df -hT
@@ -33,7 +33,7 @@ jobs:
           repository: oscar6echo-gha/pkg-1
           path: pkg-1
 
-      - name: Test path
+      - name: Show path
         run: |
           echo ${{ github.workspace }}
           ls -al ${{ github.workspace }}
